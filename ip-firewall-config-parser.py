@@ -1,7 +1,7 @@
 import csv
 import re
 
-# Read the contents of the 'output.txt' file, split it into lines,
+# Read the contents of the 'ip-firewall-structured-config.txt' file, split it into lines,
 # and remove trailing whitespace from each line.
 with open('ip-firewall-structured-config.txt') as fp:
     lines = [line.rstrip() for line in fp]
