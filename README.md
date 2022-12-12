@@ -5,13 +5,15 @@ This script processes a structured config file for an IP firewall and outputs a 
 ## Requirements
 
 - Python 2.7 or higher
-- The `csv` and `re` modules
+- The `csv`,`re` and `sys` modules
 
 ## Usage
 
 To run the script, use the following command:
 
-python ip-firewall-config-parser.py
+```
+python ip-firewall-config-parser.py <input_file> <output_file>
+```
 
 This will process the file `ip-firewall-structured-config.txt` and create the file `ip-firewall.csv` with the extracted key/value pairs.
 
