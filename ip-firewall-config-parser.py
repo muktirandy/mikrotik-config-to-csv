@@ -1,9 +1,19 @@
 import csv
 import re
+import sys
 
-# Read the contents of the 'output.txt' file, split it into lines,
+# Check if the right number of arguments are passed to the script.
+if len(sys.argv) != 3:
+    print("Usage: python ip-firewall-config-parser.py <input_file> <output_file>")
+    sys.exit(1)
+
+# Get the input and output file names from the command-line arguments.
+input_file = sys.argv[1]
+output_file = sys.argv[2]
+
+# Read the contents of the input file, split it into lines,
 # and remove trailing whitespace from each line.
-with open('ip-firewall-structured-config.txt') as fp:
+with open(input_file) as fp:
     lines = [line.rstrip() for line in fp]
 
 # Process each line in the input file.
@@ -19,6 +29,7 @@ for line in lines:
     # Append the processed line to the 'flines' list.
     flines.append(line)
 
+# Rest of the code goes here...
 rules = []
 n = 1
 quoted_str = ''
@@ -70,8 +81,8 @@ labels.insert(0, 'rule')
 for l in labels:
     print(l)
 
-# Create the 'ip-firewall.csv' file.
-with open('ip-firewall.csv', 'wb') as csvfile:
+# Create the 'output-file.csv' file.
+with open('output-file.csv', 'wb') as csvfile:
     w = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
     # Write the header row to the file.

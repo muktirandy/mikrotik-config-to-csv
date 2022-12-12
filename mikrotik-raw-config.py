@@ -1,7 +1,21 @@
+import argparse
+
+# Create an ArgumentParser object
+parser = argparse.ArgumentParser()
+
+# Define a command line argument for the input file
+parser.add_argument('input_file', help='the input file containing the raw configuration')
+
+# Define a command line argument for the output file
+parser.add_argument('output_file', help='the output file to write the structured configuration to')
+
+# Parse the command line arguments
+args = parser.parse_args()
+
 # Open the input file for reading
-with open('ip-firewall-raw.txt', 'r') as input_file:
+with open(args.input_file, 'r') as input_file:
     # Open the output file for writing
-    with open('ip-firewall-structured-config.txt', 'w') as output_file:
+    with open(args.output_file, 'w') as output_file:
         # Create an empty string to store the combined configuration
         combined_config = ''
         # Read each line from the input file
