@@ -2,6 +2,7 @@ import csv
 import re
 import sys
 
+<<<<<<< HEAD
 # Check if the right number of arguments are passed to the script.
 if len(sys.argv) != 3:
     print("Usage: python ip-firewall-config-parser.py <input_file> <output_file>")
@@ -12,6 +13,9 @@ input_file = sys.argv[1]
 output_file = sys.argv[2]
 
 # Read the contents of the input file, split it into lines,
+=======
+# Read the contents of the 'ip-firewall-structured-config.txt' file, split it into lines,
+>>>>>>> 07052eda07f91c939099e3c846a1aa30082d43c7
 # and remove trailing whitespace from each line.
 with open(input_file) as fp:
     lines = [line.rstrip() for line in fp]
